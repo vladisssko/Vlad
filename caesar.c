@@ -5,12 +5,9 @@
 #include <math.h>
 #include <stdlib.h>
 
-
 int main(int argc, string argv[])
 {
-// if comand linde argument is not 1 then print : insert command line argument  
-
-
+// if comand linde argument is not 1 then print : insert command line argument 
     if (argc != 2)
    {
        printf("Usage: ./caesar key\n");
@@ -48,7 +45,5 @@ int main(int argc, string argv[])
         printf("%c",s[i]);
     }
    
-    
-    
-printf("\n");
+   printf("\n");
 }
