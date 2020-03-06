@@ -1,6 +1,5 @@
 #include <cs50.h>
 #include <stdio.h>
-#include <string.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -32,10 +31,6 @@ bool print_winner(void);
 int find_min(void);
 bool is_tie(int min);
 void eliminate(int min);
-
-
-
-
 
 int main(int argc, string argv[])
 {
@@ -74,8 +69,7 @@ int main(int argc, string argv[])
         // Query for each rank
         for (int j = 0; j < candidate_count; j++)
         {
-
-            string name = get_string("Rank %i: ", j + 1); 
+            string name = get_string("Rank %i: ", j + 1);
 
             // Record vote, unless it's invalid
             if (!vote(i, j, name))
@@ -83,12 +77,10 @@ int main(int argc, string argv[])
                 printf("Invalid vote.\n");
                 return 4;
             }
-           
         }
-    printf("\n");
-        
-    }
 
+        printf("\n");
+    }
 
     // Keep holding runoffs until winner exists
     while (true)
@@ -132,125 +124,44 @@ int main(int argc, string argv[])
     return 0;
 }
 
+// Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    
-    for (int i = 0; i < candidate_count; i++)
-        {
-            if(strcmp(candidates[i].name, name) == 0)
-            {
-            preferences[voter][rank] = i;
-            return true;
-            }
-            
-        }
-        return false;
+    // TODO
+    return false;
 }
-
-
-// Record preference if vote is valid
 
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    for(int i = 0; i < voter_count; i++)
-        { 
-            if(candidates[preferences[i][0]].eliminated == false)
-                {
-                    candidates[preferences[i][0]].votes++;
-                }
-                    int j = 0;
-                    if(candidates[preferences[i][j]].eliminated == true)
-               {
-                   j++;
-                   candidates[preferences[i][j]].votes++;
-                  
-                }
-            
-            
-        }
-    
+    // TODO
+    return;
 }
 
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    int candidate_count_eliminated = candidate_count;
-     for(int i = 0; i < candidate_count; i++)
-        {
-            
-            
-            if (candidates[i].eliminated == true)
-            {
-            candidate_count_eliminated--;
-            
-                        if (candidates[i].eliminated == false)
-                        { 
-                            
-                        
-                if(candidates[i].votes > (candidate_count_eliminated / 2) + 1) 
-                 {
-                 printf("\n%s",candidates[i].name);
-                 return true;
-                 }
-                        }
-            }
-            
-        }
-            
-        
-    
+    // TODO
     return false;
 }
 
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    int j = 100;
-    for(int i = 0; i < candidate_count; i++)
-    {   
-        if (candidates[i].eliminated == false)
-        {  
-            if (candidates[i].votes < j)
-            {   
-                j = candidates[i].votes;
-                
-            }
-        }
-    }
-    return j;
+    // TODO
+    return 0;
 }
 
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    for(int i = 0; i < candidate_count; i++)
-    { 
-        if (candidates[i].eliminated == false)
-        {
-            if(min != candidates[i].votes )
-                {
-                    return false; 
-                }
-            
-        }
-        
-    }
-    return true;
+    // TODO
+    return false;
 }
 
 // Eliminate the candidate (or candidiates) in last place
 void eliminate(int min)
 {
-    for(int i = 0; i < candidate_count; i++)
-    {
-        if (candidates[i].eliminated == false)
-        {
-            if (min == candidates[i].votes )
-            {
-                candidates[i].eliminated = true;
-            }
-        }
-    }
-    
+    // TODO
+    return;
 }
