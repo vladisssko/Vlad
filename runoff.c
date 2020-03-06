@@ -177,11 +177,16 @@ bool print_winner(void)
 {
      for(int i = 0; i < candidate_count; i++)
         {
+             if (candidates[i].eliminated == false)
+            {
             if(candidates[i].votes >= (voter_count / 2) + 0.5) 
             {
-                 fprintf(stdout,"%s is the winner\n", candidates[i].name );
+                 printf("%s is the winner\n", candidates[i].name );
                  return true;
             }
+            
+            }
+            
         }
     return false;
 }
