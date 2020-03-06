@@ -190,7 +190,7 @@ bool print_winner(void)
                         
                 if(candidates[i].votes > (candidate_count_eliminated / 2) + 1) 
                  {
-                 printf("%s",candidates[i].name);
+                 printf("\n%s",candidates[i].name);
                  return true;
                  }
                         }
