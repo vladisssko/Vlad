@@ -33,10 +33,6 @@ int find_min(void);
 bool is_tie(int min);
 void eliminate(int min);
 
-
-
-
-
 int main(int argc, string argv[])
 {
     // Check for invalid usage
@@ -74,8 +70,7 @@ int main(int argc, string argv[])
         // Query for each rank
         for (int j = 0; j < candidate_count; j++)
         {
-
-            string name = get_string("Rank %i: ", j + 1); 
+            string name = get_string("Rank %i: ", j + 1);
 
             // Record vote, unless it's invalid
             if (!vote(i, j, name))
@@ -83,12 +78,10 @@ int main(int argc, string argv[])
                 printf("Invalid vote.\n");
                 return 4;
             }
-           
         }
-    printf("\n");
-        
-    }
 
+        printf("\n");
+    }
 
     // Keep holding runoffs until winner exists
     while (true)
@@ -132,6 +125,7 @@ int main(int argc, string argv[])
     return 0;
 }
 
+// Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
     
@@ -190,7 +184,7 @@ bool print_winner(void)
                         
                 if(candidates[i].votes > (candidate_count_eliminated / 2) + 1) 
                  {
-                 printf("%s \n ",candidates[i].name);
+                 printf("%s \n",candidates[i].name);
                  return true;
                  }
                         }
@@ -252,4 +246,5 @@ void eliminate(int min)
             }
         }
     }
-}    
+    
+}
