@@ -184,7 +184,7 @@ bool print_winner(void)
                         
                 if(candidates[i].votes > (candidate_count_eliminated / 2) + 1) 
                  {
-                 printf("%s \n",candidates[i].name);
+                 fprintf( stdout, "%s \n",candidates[i].name);
                  return true;
                  }
                         }
