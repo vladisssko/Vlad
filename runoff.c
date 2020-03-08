@@ -174,9 +174,9 @@ bool print_winner(void)
     for (int i = 0; i < candidate_count; i++)
     {
       
-        int majority = (voter_count / 2) + 1;
+       
 
-            if (candidates[i].votes >= majority)
+            if (candidates[i].votes >= ( (voter_count / 2) + 1) )
             {
             printf("%s\n", candidates[i].name);
             return true;
