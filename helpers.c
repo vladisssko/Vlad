@@ -11,7 +11,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
   
     for(int i = 0; i < height-1;i++)
     {
-        for(int j = 0; j < width;j++)
+        for(int j = 0; j < width-1;j++)
         {
         float avarage_decimals = (image[i][j].rgbtRed + image[i][j].rgbtBlue + image[i][j].rgbtGreen) / 3;  
         int avarage =  round(avarage_decimals);
