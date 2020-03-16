@@ -28,11 +28,16 @@ bool first_jpeg_found = false;
 //go trought each chunk of 512 bytes until reaches end of the card 
 while (fread (bytebuffer, 1, 512, inptr) ==512 )
 {
+    
 //check if its JPEg header - has defined first 3 bytes = 1st jpeg 
-if (bytebuffer[0] == 0xff && bytebuffer[1] == 0xd8 && bytebuffer[2] == 0xff )
+if (bytebuffer[0] == 0xff && bytebuffer[1] == 0xd8 && bytebuffer[2] == 0xff &&
+(bytebuffer[3]&0xF0) ==0xe0) 
     {
-        if(no_jpeg>1)
-        fclose(image);
+        if(image!=NULL)
+        {
+            fclose(image);
+        }
+        
        first_jpeg_found = true;
        sprintf(filename, "%03i.jpg",no_jpeg); //prepise filename podla formatu xxx.jpg
        image = fopen(filename, "w"); //otvori xxx.jpg
@@ -54,5 +59,5 @@ if (bytebuffer[0] == 0xff && bytebuffer[1] == 0xd8 && bytebuffer[2] == 0xff )
 }
 
 fclose(image);
-
+fclose(inptr);
 }
