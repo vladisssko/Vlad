@@ -120,7 +120,7 @@ bool unload(void)
 {
     node *cursor;
     node *tem;
-    for (int i = 0; i < HASHTABLE_SIZE; i++)
+    for (int i = 0; i < 65536; i++)
     {
         cursor = table[i];
             while (cursor != NULL)
