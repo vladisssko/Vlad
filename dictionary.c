@@ -40,12 +40,15 @@ node *cursor = table[bucket];
 while (cursor != NULL)
 {
     if (strcmp(cursor->word, lword) !=0 )
-    
+    {
         cursor = cursor->next;
-    
-    else 
-        return true;
     }
+    
+        else 
+        {
+        return true;
+        }
+}
     return false;
 }
 
@@ -67,6 +70,11 @@ bool load(const char *dictionary)
 {
     char buffer[LENGTH+1];
     FILE* dic_ptr = fopen(dictionary, "r");
+    
+     for (int i = 0; i < HASHTABLE_SIZE; i++)
+    {
+        table[i] = NULL;
+    }
 
     if (dic_ptr == NULL)
     {
@@ -79,12 +87,14 @@ bool load(const char *dictionary)
         
 count++;
     node *newWord = malloc(sizeof(node));
-
-         if (newWord == NULL)
+    
+    if (newWord == NULL)
             {
-            return 1;
+            return false;
             }
     strcpy(newWord->word, buffer);
+    newWord->next = NULL;
+
 
 // implement hash function to get the index
 int index = hash(buffer);
@@ -116,26 +126,23 @@ unsigned int size(void)
 
 
 // Unloads dictionary from memory, returning true if successful else false
-bool unload(void)
+
+    
+ bool unload(void)
 {
-    
-    
-    for (int i = 0; i < 65536; i++)
+    for (int i = 0; i < HASHTABLE_SIZE; i++)
     {
-       node *cursor = table[i];
-            while (cursor != NULL)
-            
+        node* cursor = table[i];
+        while (cursor != NULL)
         {
-            
-           node *tem = cursor->next;
-           free(cursor);
-           cursor = tem;
-           
+            // maintain connection to linked list using temp
+            node* temp = cursor;
+            cursor = cursor->next;
+            free(temp);
         }
-            
     }
    
     return true;
-   
-
 }
+
+
