@@ -127,9 +127,10 @@ bool unload(void)
             
         {
             
-           node *tem = cursor;
-           cursor=cursor->next;
-           free(tem);
+           node *tem = cursor->next;
+           free(cursor);
+           cursor = tem;
+           
         }
             
     }
