@@ -19,20 +19,27 @@ typedef struct node
 }
 node;
 
-// Number of buckets in hash table
-const unsigned int N = HASHTABLE_SIZE;
+
 
 // Hash table
-node *table[N];
+node *table[HASHTABLE_SIZE];
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-int bucket = hash(word);
+    int len = strlen(word);
+    char lword[len + 1];
+    for (int i = 0; i < len; i++)
+    {
+        lword[i] = tolower(word[i]);
+    }
+    lword[len] = '\0';
+    
+int bucket = hash(lword);
 node *cursor = table[bucket];
 while (cursor != NULL)
 {
-    if (strcasecmp(cursor->word, word) !=0 )
+    if (strcmp(cursor->word, lword) !=0 )
     
         cursor = cursor->next;
     
@@ -69,9 +76,8 @@ bool load(const char *dictionary)
 
     while(fscanf(dic_ptr, "%s", buffer) != EOF)
     {
-        count++;
-
-
+        
+count++;
     node *newWord = malloc(sizeof(node));
 
          if (newWord == NULL)
@@ -90,10 +96,10 @@ table[index]= newWord;
 
 //else if index is occupied, add note to index by adjusting pointers , NewWord to the start of linked list
 else
-
+{
     newWord->next = table[index];
     table[index] = newWord;
-
+}
 
     }
 return true;
