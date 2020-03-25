@@ -102,7 +102,9 @@ else
 }
 
     }
+    fclose(dic_ptr);
 return true;
+
 }
 
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
@@ -112,9 +114,29 @@ unsigned int size(void)
    printf("%i",count);
 }
 
+
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    // TODO
+    node *cursor;
+    node *tem;
+    for (int i = 0; i < HASHTABLE_SIZE; i++)
+    {
+        cursor = table[i];
+            while (cursor != NULL)
+        {    
+            
+           tem = cursor;
+           cursor=cursor->next;
+           free(tem);
+           
+            
+            
+    
+        }
+    }
+    
     return true;
+   
+
 }
