@@ -1,0 +1,64 @@
+h1
+{
+    border: 5px solid red;
+    text-align : center;
+}
+
+h2
+{
+    border: 5px solid green;
+    text-align : center;
+    font-weight: bold;
+}
+
+.about
+{
+    text-align : center;
+    font-weight: bold;
+}
+
+#ok
+{
+    text-align : center;
+    color: red;
+    background-color: yellow;
+    font: 50px
+
+
+}
+
+#one
+{
+    font: 30px Arial, sans-serif;
+}
+
+#two
+{
+    font: 30px italic small-caps bold 12px/30px Georgia, serif;
+}
+
+#three
+{
+    font: 30px Courier, monospace;
+}
+
+h3
+{
+    text-align : center;
+}
+
+#color
+{
+   text-align : center;
+}
+
+#cl
+{
+    background-color: silver;
+}
+
+img{
+    border-radius: 60px;
+    max-width: 60%;
+  height: auto;
+}
