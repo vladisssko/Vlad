@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>javascript</title>
+    </head>
+    <body id="cl">
+
+        <h1>
+            this page will be using javascript
+        </h1>
+
+        <h4 >
+            pick one of the colors for changing the backround color
+        </h4>
+
+        <select>
+            <option value="blue" >blue</option>
+            <option value="silver" selected> silver </option>
+            <option value="yellow" >yellow</option>
+        </select>
+
+        <script>
+            document.querySelector('select').onchange = function()
+            {
+            document.querySelector('body').style.backgroundColor = this.value;
+            }
+
+        </script>
+        <h3>
+             <a href = "https://707bd1cf-8c31-4785-b1a7-bec94317b981-ide.cs50.xyz:8080/index.html"> Home</a>
+        </h3>
+
+    </body>
+</html>
