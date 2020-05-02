@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Name</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">TOTAL</th>
+
+    </tr>
+  </thead>
+  <tbody>
+     {% for stock in stocks %}
+      <tr>
+        <td>{{ stock.symbol }}</td>
+        <td>{{ stock.name }}</td>
+        <td>{{ stock.shares }}</td>
+        <td>{{ stock.price|usd }}</td>
+        <td>{{ stock.total|usd }}</td>
+      </tr>
+    {% endfor %}
+
+
+    <tr>
+      <td> CASH </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td> {{ actual_cash|usd }}</td>
+    </tr>
+   </tbody>
+   <tfoot>
+     <tr>
+       <td colspan ="4"></td>
+       <td style="font-weight: bold;"> {{total_money|usd }}</td>
+</tfoot>
+</table>
+
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_acfaa"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "width": 1100,
+  "height": 500,
+  "symbol": "NASDAQ:AAPL",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "light",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "allow_symbol_change": true,
+  "container_id": "tradingview_acfaa"
+}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+{% endblock %}
