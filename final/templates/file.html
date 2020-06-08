@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block home %} href="/home" {% endblock %}
+{% block contact  %} href="/home#contact" {% endblock %}
+
+
+{% block title %}
+    Schedule
+{% endblock %}
+
+{% block main %}
+
+{% if message %}
+        <div class="alert alert-success text-center" style="padding-top:25px;"  role="alert">
+
+  {{ message}}
+</div>
+<h5 style="padding-top:10px; padding-bottom:0px; font-weight:bold"class="text-center "> Please fill in request form and we will contact you shortly. </h5>
+
+{% else %}
+<h5 style="padding-top:35px; padding-bottom:0px; font-weight:bold"class="text-center "> Please fill in request form and we will contact you shortly. </h5>
+
+{% endif %}
+
+
+ <form action="/schedule" method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+
+
+
+</form>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+
+
+
+{% endblock %}

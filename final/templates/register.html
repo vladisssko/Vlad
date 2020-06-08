@@ -1,0 +1,66 @@
+{% extends "index.html" %}
+
+{% block home %} href="/home" {% endblock %}
+{% block contact  %} href="/home#contact" {% endblock %}
+
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+ <h1 style="padding-bottom:20px; padding-top:30px;" class="header text-center "> Registration</h1>
+ <h5  style="padding-bottom:5px;" class= "text-center" id="">Please fill out the form provided below so we can record your details and use them  in future <h5/>
+
+{% if message %}
+         <div class="alert alert-danger text-center" style="margin :0px;" role="alert"> {{ message }}</div>
+
+    {% endif %}
+
+<div class="container4">
+<form action="/register" method="post">
+  <div class="form-row">
+ <div class="form-group col-md-4 ">
+      <label for="inputEmail4">Username</label>
+      <input value="{{ username }}" type="text" class="form-control" name="username" id="inputEmail4" placeholder="Username">
+    </div>
+    <div class="form-group col-md-4 ">
+      <label for="inputPassword4">Password</label>
+      <input value="{{ password }}" type="password" class="form-control"name="password"  id="inputPassword4" placeholder="Password">
+    </div>
+    <div class="form-group  col-md-4">
+      <label for="inputPassword4">Confrimation</label>
+      <input value="{{ confirmpassword }}" type="password" class="form-control"  name="confirmpassword" id="inputPassword4" placeholder="Confirm Password">
+    </div>
+    </div>
+<div class="form-row">
+    <div class="form-group  ">
+      <label for="inputPassword">First name</label>
+      <input value="{{ firstname }}" type="first_name" class="form-control" name="firstname" id="inputPassword4" placeholder="First name">
+    </div>
+    <div class="form-group ">
+      <label for="inputPassword4">Last name</label>
+      <input value="{{ lastname }}" type="last_name" class="form-control" name="lastname" id="inputPassword4" placeholder="Last name">
+    </div>
+    </div>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword1">Email</label>
+      <input value="{{ email }}" type="Email" class="form-control"name="email" id="inputPassword4" placeholder="Email">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword1">Phone number</label>
+      <input value="{{ number }}" type="Phone_number<" class="form-control" name="number" id="inputPassword4" placeholder="Phone number">
+    </div>
+    </div>
+
+
+
+  <button type="submit" style="margin-left:auto;margin-right:auto;display:block;margin-top:0px;margin-bottom:0%" class="btn btn-primary">Register</button>
+</form>
+</div>
+<div/>
+{% endblock %}

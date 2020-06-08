@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+
+{% block title %}
+    Appoitment Details
+{% endblock %}
+
+{% block main %}
+
+
+<h1 style="padding-top:40px;" class="text-center">
+    Appointment Details
+</h1>
+
+<div class="container5" >
+
+
+<table class="table table-striped" action="/login" method="post">
+  <thead>
+    <tr>
+       <th scope="col">Request date</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Contact by</th>
+     <th scope="col">Message</th>
+     <th scope="col">tel. number</th>
+      <th scope="col">Prefered day</th>
+      <th scope="col">Prefered time</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for row in showDetails %}
+    <tr class='clickable-row' >
+       <td>{{row.time }}</td>
+      <td > {{row.first_name }}</td>
+      <td> {{row.last_name}} </td>
+      <td>{{row.comunication}}</td>
+      <td>{{row.text}}</td>
+      <td>{{row.tel_number}}</td>
+      <td>{{row.day_pref}}</td>
+      <td>{{row.time_pref}}</td>
+
+
+    </tr>
+{% endfor %}
+
+
+  </tbody>
+
+</table>
+<form method="post" action="/details">
+<button type="submit" class="btn btn-primary btn-block" style="width: 30%; margin:auto;">Move to handeled</button>
+</form>
+
+</div>
+
+
+{% endblock %}
