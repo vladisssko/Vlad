@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{% block home %} href="/home" {% endblock %}
+{% block contact  %} href="/home#contact" {% endblock %}
+
+
+{% block title %}
+    My requests
+{% endblock %}
+
+{% block main %}
+
+<h1 style="padding-top:40px;" class="text-center">
+    History of your requests
+</h1>
+
+<div class="container5">
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th scope="col">Request date</th>
+      <th scope="col" style="text-align: center;  vertical-align: middle;">Message</th>
+      <th scope="col">Contact method</th>
+      <th scope="col">Preffered day</th>
+      <th scope="col">Preffered time</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for row in table %}
+
+    <tr>
+      <td > {{row.time }}</td>
+      <td> {{row.text }}</td>
+      <td> {{row.comunication }} </td>
+      <td>{{row.day_pref }}</td>
+      <td>{{row.time_pref }}</td>
+
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock %}
